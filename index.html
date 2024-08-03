@@ -17,7 +17,11 @@
             <form action="#">
             <div class="field">
                 <input onkeyup="trigger()" type="password" placeholder="Type password">
-                <span class="showBtn"></span>
+                <div class="button-container">
+                    <span class="showBtn"></span>
+                    <button type="button" onclick="copyPassword()">Copy</button>
+                </div>
+                
             </div>
             <div class="indicator">
                 <span class="vweak"></span>
