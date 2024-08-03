@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Strength Checker</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+    </head>
+    <body>
+        
+        <div class="container">
+            <header>CREATE YOUR PASSWORD</header>
+            <form action="#">
+            <div class="field">
+                <input onkeyup="trigger()" type="password" placeholder="Type password">
+                <span class="showBtn"></span>
+            </div>
+            <div class="indicator">
+                <span class="vweak"></span>
+                <span class="weak"></span>
+                <span class="medium"></span>
+                <span class="strong"></span>
+            </div>
+            <br>
+            <div class="text"></div>
+            <br>
+            <div class="content">
+                <p>Password must contain:</p>
+                <ul class="requirement-list">
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-check"></i></span>
+                        <span>Atleast 8 characters</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-check"></i></span>
+                        <span>Atleast 1 Number (0 to 9)</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-check"></i></span>
+                        <span>Atleast 1 Lowercase Letter (a to z)</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-check"></i></span>
+                        <span>Atleast 1 Special Character</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-check"></i></span>
+                        <span>Atleast 1 Uppercase Letter (A to Z)</span>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
