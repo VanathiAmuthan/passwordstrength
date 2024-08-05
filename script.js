@@ -7,8 +7,8 @@ const medium = document.querySelector(".medium");
 const strong = document.querySelector(".strong");
 const text = document.querySelector(".text");
 const showBtn = document.querySelector(".showBtn");
-const copyBtn = document.getElementById('copyBtn'); // Copy button element
 const requirementList = document.querySelectorAll('.requirement-list li');
+
 
 const regExpVweak = /[a-z]/;
 const regExpWeak = /[A-Z]/;
@@ -18,6 +18,7 @@ const regExpStrong = /[!@#$%^&*(),.?":{}|<>]/;
 function trigger() {
     const password = input.value;
     let strength = 0;
+
 
     [vweak, weak, medium, strong].forEach(el => el.classList.remove("active"));
     requirementList.forEach(li => li.classList.remove('valid'));
@@ -43,23 +44,25 @@ function trigger() {
             requirementList[4].classList.add('valid');
         }
 
+
         if (password.length >= 8 && regExpVweak.test(password) && regExpWeak.test(password) && regExpMedium.test(password) && regExpStrong.test(password)) {
             strength = 4;
         } else if (regExpWeak.test(password) && regExpMedium.test(password) && regExpStrong.test(password) ||
-            regExpVweak.test(password) && regExpMedium.test(password) && regExpStrong.test(password) ||
-            regExpVweak.test(password) && regExpWeak.test(password) && regExpStrong.test(password) ||
-            regExpVweak.test(password) && regExpWeak.test(password) && regExpMedium.test(password)) {
+        regExpVweak.test(password) && regExpMedium.test(password) && regExpStrong.test(password) ||
+        regExpVweak.test(password) && regExpWeak.test(password) && regExpStrong.test(password) ||
+        regExpVweak.test(password) && regExpWeak.test(password) && regExpMedium.test(password)) {
             strength = 3;
         } else if (regExpWeak.test(password) && regExpMedium.test(password) ||
-            regExpMedium.test(password) && regExpStrong.test(password) ||
-            regExpWeak.test(password) && regExpStrong.test(password) ||
-            regExpVweak.test(password) && regExpMedium.test(password) ||
-            regExpVweak.test(password) && regExpWeak.test(password) ||
-            regExpVweak.test(password) && regExpStrong.test(password)) {
+        regExpMedium.test(password) && regExpStrong.test(password) ||
+        regExpWeak.test(password) && regExpStrong.test(password) ||
+        regExpVweak.test(password) && regExpMedium.test(password) ||
+        regExpVweak.test(password) && regExpWeak.test(password) ||
+        regExpVweak.test(password) && regExpStrong.test(password)) {
             strength = 2;
         } else if (regExpVweak.test(password) || regExpWeak.test(password) || regExpMedium.test(password) || regExpStrong.test(password)) {
             strength = 1;
         }
+
 
         switch (strength) {
             case 1:
@@ -91,8 +94,6 @@ function trigger() {
         }
 
         showBtn.style.display = "block";
-        copyBtn.style.display = "block"; // Show copy button
-
         showBtn.onclick = function () {
             if (input.type === "password") {
                 input.type = "text";
@@ -104,23 +105,9 @@ function trigger() {
                 showBtn.style.color = "#000";
             }
         };
-
-        copyBtn.onclick = function () {
-            navigator.clipboard.writeText(input.value)
-                .then(() => {
-                    console.log('Password copied to clipboard!');
-                    alert('Password copied to clipboard!');
-                })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                    alert('Failed to copy password. Please try again.');
-                });
-        };
-
     } else {
         indicator.style.display = "none";
         text.style.display = "none";
         showBtn.style.display = "none";
-        copyBtn.style.display = "none"; // Hide copy button when input is empty
     }
 }
