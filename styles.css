@@ -16,7 +16,7 @@ html,body{
 .container{
     background:beige;
     padding: 20px 30px;
-    width: 500px;
+    width: 450px;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
@@ -118,7 +118,7 @@ form .text.weak{
     color: rgb(255, 149, 0);
 }
 form .text.medium{
-    color: rgb(255, 221, 48);
+    color: rgb(255, 213, 0);
 }
 form .text.strong{
     color: green;
